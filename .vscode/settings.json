@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+
+  "eslint.format.enable": true,
+  "eslint.validate": ["html", "ts", "tsx", "css", "less"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+}

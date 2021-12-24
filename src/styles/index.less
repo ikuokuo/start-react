@@ -1,0 +1,23 @@
+/*
+CSS Naming: BEM
+
+.block__elem {
+  &--mod {
+  }
+}
+*/
+@import '~antd/lib/style/themes/default.less';
+@import '~antd/dist/antd.less';
+
+.app {
+  height: 100vh;
+}
+
+.app__content {
+  display: flex;
+
+  & > :first-child {
+    flex: auto;
+    padding: @padding-md;
+  }
+}
