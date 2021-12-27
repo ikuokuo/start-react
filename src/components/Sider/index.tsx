@@ -4,27 +4,45 @@ import { Layout, Menu } from 'antd';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { SelectInfo } from 'rc-menu/lib/interface';
 
-const Sider: React.FC = () => {
+import { pageGroups } from '@/config';
+
+const Sider: React.FC<{width?: number}> = ({ width }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const menuSelectKey = location.pathname === '/' ? '/home' : '/about';
+  let menuSelectKey = location.pathname;
+  if (menuSelectKey === '/') menuSelectKey = '/home';
+
   const menuSelect = (info: SelectInfo) => {
-    navigate(info.key, { replace: true });
+    navigate(info.key);
   };
 
   return (
-    <Layout.Sider width={200}>
+    <Layout.Sider width={width}>
       <Menu
-        defaultSelectedKeys={[menuSelectKey]}
+        openKeys={['mobx']}
+        selectedKeys={[menuSelectKey]}
         mode="inline"
         onSelect={menuSelect}
       >
         <Menu.Item key="/home">Home</Menu.Item>
-        <Menu.Item key="/about">About</Menu.Item>
+        {pageGroups.map((g) => (
+          <Menu.SubMenu
+            key={g.group.siderKey || g.group.href}
+            title={g.group.siderName || g.group.name}
+          >
+            {g.pages.map((p) => (
+              <Menu.Item key={p.siderKey || p.href}>
+                {p.siderName || p.name}
+              </Menu.Item>
+            ))}
+          </Menu.SubMenu>
+        ))}
       </Menu>
     </Layout.Sider>
   );
 };
+
+Sider.defaultProps = { width: 200 };
 
 export default Sider;
