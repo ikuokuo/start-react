@@ -30,8 +30,9 @@
     "test": "craco test",
     "eject": "craco eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern node_modules/",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
+    "gpclean": "gh-pages-clean"
   },
   "eslintConfig": {
     "extends": [

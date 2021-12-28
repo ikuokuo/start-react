@@ -10,12 +10,16 @@ interface Entry {
 // project
 
 interface Project extends Entry {
+  baseUrl: string;
   references?: Array<Entry>;
 }
 
 const project: Project = {
   name: 'Start React',
   href: 'https://github.com/ikuokuo/start-react',
+  // NOTE: package.json homepage
+  baseUrl: '/start-react',
+  // baseUrl: process.env.PUBLIC_URL,
   references: [
     { name: 'React', href: 'https://reactjs.org/' },
     { name: 'React Router', href: 'https://reactrouter.com/' },

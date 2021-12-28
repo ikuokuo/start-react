@@ -4,13 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import '@csstools/normalize.css';
 
 import App from './pages/App';
+import { project } from './config';
 import './styles/index.less';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={project.baseUrl}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
